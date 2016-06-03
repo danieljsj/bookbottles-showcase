@@ -16,6 +16,8 @@ module.exports = require('angular')
     // registering a controller; unlike in .config(), the required (...Ctrl) funcs won't be called yet, they'll be called when their route/"state" is activated.
     .controller('SignUpCtrl', require('./controllers/SignUpCtrl'))
     // service:
+    // 'factory()' is a way of creating a service; the module itself returns/is the service object.
+        // 'service()' would return with the 'new' keyword; the module returns a constructor function for the service which is immediately run. (sort of like how config() is used, except that the function that config() will run doesn't return anything to be kept, but instead just acts as a filter/modifier on a provider before that provider's $get() is finally run to create a service. (that delay is why config modify the service by acting prior to its creation. cuz we don't generally like modifying services after their creation... right?))
     // registering a service on the module; unlike controller and config mini-modules, a service mini-module is just an object, not a function to be called. its methods can be called at various points through the app.
     .factory('UserService', require('./services/UserService'))
     

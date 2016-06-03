@@ -23,7 +23,6 @@ function SignUpCtrl(UserService) { // this controller fires once when the route/
     														// Now. Why is that better than using the controller with the $scope service as a dependency, where the controller dumps stuff on to the $scope inside its own execution?
     															// well, it feels cleaner... better to have the controller dump its whole self, quite like a module.exports, onto the $scope within the template via an 'as' statement, than to get this weird $scope variable -- that you don't know where it came from or what else is on it or why -- injected/dangled into your controller to wreak havoc on! (and perhaps to have $scope wreak havoc within your controller!). More module. Like a module.exports. I like it.
 
-    vm.signUp = UserService.create; // 'publishing' just this one method of UserService into the 'vm'/ View's Model
+    vm.signUp = UserService.create; // we're publishing' just this one method from UserService into the 'vm'/ View's Model
 
 }
-

@@ -20,14 +20,22 @@ function UserService() {
 
         // COMING SOON:
         // MAYBE SOMETHING AS SIMPLE AS THIS:
-    //     return {
+        // 
+    //     var user = {
     //     	firstName: "Jane",
     //     	lastName: "Doe",
     //     	email: "jane@doe.com",
     //     	id: Math.round(Math.random()*10^10)
     //     };
 
-    	// OR MAYBE USE SOME ANGULARFIRE TO MAKE A REAL FIREBASE USER
+
+    // 	// TODO:QN: WHERE DO I PUT THE USER?!?!?!?!?
+
+
+
+    	// OR MAYBE USE SOME ANGULARFIRE TO MAKE A REAL FIREBASE USER; 
+    	// That definitely gives me a place to put my user... on the FB auth objects or whatever; just like I've been doing.
+    	// Now. I notice that UserService doesn't have any dependencies.
     }
 }
 
