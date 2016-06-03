@@ -36,6 +36,8 @@ function UserService() {
     	// OR MAYBE USE SOME ANGULARFIRE TO MAKE A REAL FIREBASE USER;
     	// That definitely gives me a place to put my user... on the FB auth objects or whatever; just like I've been doing.
     	// Now. I notice that UserService doesn't have any dependencies.
+
+    	// https://firebase.google.com/docs/auth/web/password-auth
     }
 }
 
