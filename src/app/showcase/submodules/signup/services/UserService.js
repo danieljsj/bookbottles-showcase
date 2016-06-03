@@ -31,6 +31,9 @@ function UserService() {
 
     // 	// TODO:QN: WHERE DO I PUT THE USER?!?!?!?!?
 
+    // I think you put the user IN userService. Even if you're doing firebaseAuth, where firebase stores the user, I think you use UserService maybe to wrap it. (or maybe you use Firebase's own services. TBD.)
+    	// UserService.getFirstName() / setFirstName() / etc. etc. etc.
+
 
 
     	// OR MAYBE USE SOME ANGULARFIRE TO MAKE A REAL FIREBASE USER;
