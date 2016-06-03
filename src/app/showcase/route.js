@@ -11,5 +11,10 @@ function route($stateProvider) {
         .state('home', {
             url: '/',
             template: require('./templates/home.tpl.jade')
-        });
+        })
+        .state('dashboard', {
+            url: '/dashboard',
+            template: require('./templates/dashboard.tpl.jade')
+        })
+    ;
 }
