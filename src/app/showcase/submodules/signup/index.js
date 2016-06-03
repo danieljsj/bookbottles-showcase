@@ -16,10 +16,17 @@ module.exports = require('angular')
     // registering a controller; unlike in .config(), the required (...Ctrl) funcs won't be called yet, they'll be called when their route/"state" is activated.
     .controller('SignUpCtrl', require('./controllers/SignUpCtrl'))
     // service:
-    // 'factory()' is a way of creating a service; the module itself returns/is the service object.
-        // 'service()' would return with the 'new' keyword; the module returns a constructor function for the service which is immediately run. (sort of like how config() is used, except that the function that config() will run doesn't return anything to be kept, but instead just acts as a filter/modifier on a provider before that provider's $get() is finally run to create a service. (that delay is why config modify the service by acting prior to its creation. cuz we don't generally like modifying services after their creation... right?))
+    // 'factory()' is a way of creating a service; the module's .exports is itself the service object.
+        // whereas 'service()' would return with the 'new' keyword; the module returns a constructor function for the service which is immediately run. 
+            // (sort of like how config() is used, except that the function that config() will run doesn't return anything to be kept, but instead just acts as a filter/modifier on a provider before that provider's $get() is finally run to create a service. (that delay is why config modify the service by acting prior to its creation. cuz we don't generally like modifying services after their creation... right?))
+                /*
+                    A 'factory'  IS_USED_ON_A_MODULE_EXPORT_THAT_IS_A: service literal
+                    A 'service'  IS_USED_ON_A_MODULE_EXPORT_THAT_IS_A: service constructor
+                    A 'provider' IS_USED_ON_A_MODULE_EXPORT_THAT_IS_A: configurable data object containing service constructor as .$get method
+                */
     // registering a service on the module; unlike controller and config mini-modules, a service mini-module is just an object, not a function to be called. its methods can be called at various points through the app.
-    .factory('UserService', require('./services/UserService'))
+    
+    .factory('UserService', require('./services/UserService')) // Should this be renamed to UserFactory?? I suppose not, because by the time it's been called as a service, it's now just a service object regardless of its origin. So maybe one might put some self-documentation inside the UserService file to show/remind a coder of how it is instantiated... which is basically already happening because we can see what the 'return' looks like - a service literal, a service constructor, or a service constructor inside a configurable data/context object.
     
     .name;
     // hmm. looks like the exports of the (big)(bb.showcase.signup)module is just its name....

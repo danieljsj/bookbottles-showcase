@@ -14,7 +14,7 @@ function SignUpCtrl(UserService) { // this controller fires once when the route/
     					// I could just have easily said this.signUp = UserService.create... but this is to tell me that 'this' in all controllers is the 'vm'. 
     						// WAIT... how is this different from angular's $scope? 
     							// We're using angular for making all the modules and such... but I haven't seen any sign of $scope... 
-    								// TODO:QN: why 'vm' instead of '$scope'??? ... must be specific to angular-ui-router??
+    								// why 'vm' instead of '$scope'??? ... must be specific to angular-ui-router??
     									// https://johnpapa.net/angularjss-controller-as-and-the-vm-variable/
     										// vm == View's Model (aka ViewModel)          (! not in any way related to virtualmachine like what jquery runs all its $.load()ed scripts into...)
     											// 
