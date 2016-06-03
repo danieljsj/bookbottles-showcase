@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = SignUpCtrl;
+module.exports = SignUpCtrlLALALA; // LALALA denotes that var/fn name here is not important
 
 /**
  * @ngInject
  */
-function SignUpCtrl(UserService) {
+function SignUpCtrlLALALA(UserService) {
     var vm = this;
 
     vm.signUp = UserService.create;
