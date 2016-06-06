@@ -6,8 +6,7 @@ require('angular')
         require('angular-ui-router'),
 
         /* Custom */
-        // require('../signup') // OOOH, requiring that whole sub-module (at its index.js)
-        require('./submodules/signup') // clearer. removes confusions.
+        require('./submodules/signup') // moved to submodules directory since it is named as a child/submodule of 'showcase'
     ])
     .config(require('./config'))
     .config(require('./route'));
