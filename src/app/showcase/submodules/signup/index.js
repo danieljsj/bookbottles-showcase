@@ -6,7 +6,7 @@ module.exports = require('angular')
         require('angular-ui-router'),
 
         /* Custom */
-        require('../core')
+
     ])
 
     .config(require('./route')) 
