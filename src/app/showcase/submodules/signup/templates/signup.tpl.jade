@@ -6,6 +6,6 @@ div
     // TODO:QN: where are we getting this vm object from? Is it from index.jade's .container(ui-view)?
     button.btn.btn-default(ng-click='vm.login()') Log In
 div.status
-    div {{ vm.getCurrentUser().displayName }}
+    div {{ vm.getCurrentUser().email }}
 
 a(ui-sref="home") Home
