@@ -3,9 +3,10 @@
 module.exports = require('angular')
     .module('bookbottles.showcase.signup', [ 
     	/* 3rd Party */
-        require('angular-ui-router')
+        require('angular-ui-router'),
 
         /* Custom */
+        require('../core')
     ])
 
     .config(require('./route')) 
