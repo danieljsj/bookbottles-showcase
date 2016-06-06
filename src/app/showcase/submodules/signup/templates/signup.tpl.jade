@@ -1,5 +1,11 @@
 h1 Sign Up
 // MAYBE: use something like this for my form - http://jasonwatmore.com/post/2015/03/10/AngularJS-User-Registration-and-Login-Example.aspx
 div
-    button.btn.btn-default(ng-click='vm.signUp()') Create User
+    button.btn.btn-default(ng-click='vm.signup()') Create User
+div
+    // TODO:QN: where are we getting this vm object from? Is it from index.jade's .container(ui-view)?
+    button.btn.btn-default(ng-click='vm.login()') Log In
+div.status
+    div {{ vm.getCurrentUser().displayName }}
+
 a(ui-sref="home") Home

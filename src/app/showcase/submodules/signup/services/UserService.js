@@ -7,7 +7,7 @@ module.exports = UserService;
  */
 function UserService() {
 
-
+  // this could go a number of places; for now I'm putting in in UserService since it's related.
   var config = {
     apiKey: "AIzaSyB0wRqUQWX0nfOl7TC8ydGgs0MGXnLJ_9Y", // public; okay to include in the repo.
     authDomain: "fighter-jets.firebaseapp.com",
@@ -27,17 +27,19 @@ function UserService() {
       login: login,
       logout: logout,
       isLoggedIn: isLoggedIn,
+      getAuth: getAuth,
+      getCurrentUser: getCurrentUser,
+      getCurrentUserJSON: getCurrentUserJSON
+
       // sendWelcomeEmail: sendWelcomeEmail
     };
 
     return service;
 
- 
-
     ////////////
 
     function create(userData) {
-      console.debug('Creating a user you betcha!');
+      console.debug('Creating a user...');
       // return firebaseAuthObject.$createUser(userData);
 
       firebase.auth().createUserWithEmailAndPassword("test1@test1.com", "test123").catch(function(error) {
@@ -50,22 +52,49 @@ function UserService() {
     }
 
     function login(userData) {
+      console.debug('Logging In...');
       // return firebaseAuthObject.$authWithPassword(userData);
+      firebase.auth().signInWithEmailAndPassword("test1@test1.com", "test123").catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
     }
 
     function logout() {
       // SOME_MAIN_Service.reset(); // perhaps coming soon;
       // firebaseAuthObject.$unauth();
+      firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }, function(error) {
+        // An error happened.
+      });
     }
 
     function isLoggedIn() {
       // return firebaseAuthObject.$getAuth();
+      return !! firebase.auth().currentUser;
     }
 
-    function sendWelcomeEmail(emailAddress) {
-      // firebaseDataService.emails.push({
-      //   emailAddress: emailAddress
-      // });
+    function getAuth() {
+      return firebase.auth();
     }
+
+    function getCurrentUser() {
+      return firebase.auth().currentUser;
+    }
+
+    function getCurrentUserJSON() {
+      return JSON.stringify(this.getCurrentUser());
+    }
+
+    // function getUserData(){} // COMING SOON!
+
+    // function sendWelcomeEmail(emailAddress) {
+    //   // firebaseDataService.emails.push({
+    //   //   emailAddress: emailAddress
+    //   // });
+    // }
 
 }
