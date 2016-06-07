@@ -12,5 +12,11 @@ function route($stateProvider) {
             url: '/signup',
             template: require('./templates/signup.tpl.jade'),
             controller: 'SignUpCtrl as vm'
-        });
+        })
+        .state('login', {
+        	url: '/login',
+        	template: require('./templates/login.tpl.jade'),
+        	controller: 'LogInCtrl as vm'
+        })
+        ;
 }
