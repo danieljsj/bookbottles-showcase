@@ -6,10 +6,10 @@ module.exports = UserService;
  * @ngInject
  */
 // Should I be using that @ngInject to inject things? Seems more intuitive to do this:
-UserService.$inject = ['$state'];
+UserService.$inject = ['$state','$rootScope'];
 
 
-function UserService($state) {
+function UserService($state,$rootScope) {
 
   // this could go a number of places; for now I'm putting in in UserService since it's related.
   var config = {
@@ -82,6 +82,7 @@ function UserService($state) {
       // firebaseAuthObject.$unauth();
       firebase.auth().signOut().then(function() {
         // Sign-out successful.
+        $rootScope.$apply();
       }, function(error) {
         // An error happened.
       });
