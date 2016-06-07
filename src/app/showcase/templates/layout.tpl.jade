@@ -35,12 +35,16 @@
                 li
                   a(href='/') One more separated link*
           ul.nav.navbar-nav.navbar-right
+            // TODO: figure out how to get ui-sref to also work inside the 'signup' module
             li
-              a(ui-sref="signup") Sign up
+              a(href="/signup") Sign up
+              //- a(ui-sref="signup") Sign up
             li
-              a(ui-sref="login") Log in
+              a(href="/login") Log in
+              //- a(ui-sref="login") Log in
             li.active
-              a(ui-sref="dashboard") Dashboard
+              a(href="/dashboard") Dashboard
+              //- a(ui-sref="dashboard") Dashboard
         // /.nav-collapse
     // /.navbar.navbar-default.navbar-fixed-top
 // /#header
