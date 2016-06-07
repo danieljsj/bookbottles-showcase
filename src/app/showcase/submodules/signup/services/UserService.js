@@ -5,7 +5,11 @@ module.exports = UserService;
 /**
  * @ngInject
  */
-function UserService() {
+// Should I be using that @ngInject to inject things? Seems more intuitive to do this:
+UserService.$inject = ['$state'];
+
+
+function UserService($state) {
 
   // this could go a number of places; for now I'm putting in in UserService since it's related.
   var config = {
@@ -42,24 +46,34 @@ function UserService() {
       console.debug('Creating a user...');
       // return firebaseAuthObject.$createUser(userData);
 
-      firebase.auth().createUserWithEmailAndPassword("test1@test1.com", "test123").catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-      });
-
+      firebase.auth().createUserWithEmailAndPassword("test1@test1.com", "test123")
+      .then(
+        function(){
+          UserService.login(userData);
+        },
+        function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        }
+      );
     }
 
     function login(userData) {
       console.debug('Logging In...');
       // return firebaseAuthObject.$authWithPassword(userData);
-      firebase.auth().signInWithEmailAndPassword("test1@test1.com", "test123").catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-      });
+      firebase.auth().signInWithEmailAndPassword("test1@test1.com", "test123").then(
+        function(){
+          $state.go('dashboard');
+        },
+        function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        }
+      );
     }
 
     function logout() {
