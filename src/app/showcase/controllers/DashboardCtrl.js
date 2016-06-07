@@ -5,6 +5,9 @@ module.exports = DashboardCtrl;
 /**
  * @ngInject
  */
+
+DashboardCtrl.$inject = ['UserService'];
+
 function DashboardCtrl(UserService) { 
 
     var vm = this; 
