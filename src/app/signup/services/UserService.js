@@ -44,10 +44,10 @@ function UserService($state,$rootScope) {
     ////////////
 
     function create(userData) {
-      console.debug('Creating a user...');
+      console.debug('Creating a user with userData: ', userData);
       // return firebaseAuthObject.$createUser(userData);
 
-      firebase.auth().createUserWithEmailAndPassword("test1@test1.com", "test123")
+      firebase.auth().createUserWithEmailAndPassword(userData.email, userData.password)
       .then(
         function(){
           UserService.login(userData);
@@ -64,7 +64,7 @@ function UserService($state,$rootScope) {
     function login(userData) {
       console.debug('Logging In...');
       // return firebaseAuthObject.$authWithPassword(userData);
-      firebase.auth().signInWithEmailAndPassword("test1@test1.com", "test123").then(
+      firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then(
         function(){
           $state.go('dashboard');
         },
