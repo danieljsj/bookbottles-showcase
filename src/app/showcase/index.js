@@ -7,7 +7,7 @@ require('angular')
         require('angularfire'),
 
         /* Custom */
-        require('./submodules/signup') // moved to submodules directory since it is named as a child/submodule of 'showcase'
+        require('../signup')
     ])
     .config(require('./config'))
     .config(require('./route'))
