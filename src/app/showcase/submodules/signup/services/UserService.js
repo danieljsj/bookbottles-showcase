@@ -101,7 +101,7 @@ function UserService($state) {
     }
 
     function getCurrentUserJSON() {
-      return JSON.stringify(this.getCurrentUser());
+      return JSON.stringify(UserService.getCurrentUser());
     }
 
     function resetPassword(){
