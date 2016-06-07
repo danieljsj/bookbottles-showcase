@@ -82,7 +82,8 @@ function UserService($state,$rootScope) {
       // firebaseAuthObject.$unauth();
       firebase.auth().signOut().then(function() {
         // Sign-out successful.
-        $rootScope.$apply();
+        // $rootScope.$apply();
+        $state.go('home');
       }, function(error) {
         // An error happened.
       });
