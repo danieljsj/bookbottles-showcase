@@ -33,9 +33,10 @@ function UserService($state) {
       isLoggedIn: isLoggedIn,
       getAuth: getAuth,
       getCurrentUser: getCurrentUser,
-      getCurrentUserJSON: getCurrentUserJSON
-
-      // sendWelcomeEmail: sendWelcomeEmail
+      getCurrentUserJSON: getCurrentUserJSON,
+      // resetPassword: resetPassword,
+      // getUserData: getUserData,
+      // sendWelcomeEmail: sendWelcomeEmail,
     };
 
     return service;
@@ -101,6 +102,10 @@ function UserService($state) {
 
     function getCurrentUserJSON() {
       return JSON.stringify(this.getCurrentUser());
+    }
+
+    function resetPassword(){
+      // COMINGSOON
     }
 
     // function getUserData(){} // COMING SOON!
