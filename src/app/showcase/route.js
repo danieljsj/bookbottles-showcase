@@ -14,7 +14,8 @@ function route($stateProvider) {
         })
         .state('dashboard', {
             url: '/dashboard',
-            template: require('./templates/dashboard.tpl.jade')
+            template: require('./templates/dashboard.tpl.jade'),
+            controller: 'DashboardCtrl as vm'
         })
     ;
 }

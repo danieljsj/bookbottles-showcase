@@ -10,4 +10,6 @@ require('angular')
         require('./submodules/signup') // moved to submodules directory since it is named as a child/submodule of 'showcase'
     ])
     .config(require('./config'))
-    .config(require('./route'));
+    .config(require('./route'))
+    .controller('DashboardCtrl', require('./controllers/DashboardCtrl'))
+;
