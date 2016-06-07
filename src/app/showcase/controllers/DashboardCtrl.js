@@ -22,6 +22,7 @@ function DashboardCtrl(UserService) {
     vm.getCurrentUserJSON = UserService.getCurrentUserJSON;
 
     // controller-specific:
+    vm.logout = UserService.logout;
 
 
 }

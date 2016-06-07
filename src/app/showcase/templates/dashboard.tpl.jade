@@ -3,3 +3,5 @@ extends ./layout.tpl.jade
 block content
 	h1 trololo i am a dashboard
 	h2 email: {{ vm.getCurrentUser().email }}
+	h3 
+		a(ng-click="vm.logout()") logout
