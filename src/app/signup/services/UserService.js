@@ -50,7 +50,7 @@ function UserService($state,$rootScope) {
       firebase.auth().createUserWithEmailAndPassword(userData.email, userData.password)
       .then(
         function(){
-          UserService.login(userData);
+          login(userData);
         },
         function(error) {
           // Handle Errors here.
@@ -102,7 +102,7 @@ function UserService($state,$rootScope) {
     }
 
     function getCurrentUserJSON() {
-      return JSON.stringify(UserService.getCurrentUser());
+      return JSON.stringify(getCurrentUser());
     }
 
     function resetPassword(){
