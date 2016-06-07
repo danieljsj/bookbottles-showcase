@@ -10,7 +10,7 @@ module.exports = require('angular')
 
     ])
     .config(require('./route')) 
-    .controller('SignUpCtrl', require('./controllers/SignUpCtrl'))
-    .controller('LogInCtrl', require('./controllers/LogInCtrl'))
+    .controller('SignupCtrl', require('./controllers/SignupCtrl'))
+    .controller('LoginCtrl', require('./controllers/LoginCtrl'))
     .factory('UserService', require('./services/UserService')) 
     .name;

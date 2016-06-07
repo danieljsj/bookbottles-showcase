@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = SignUpCtrl; 
+module.exports = LoginCtrl; 
 
 /**
  * @ngInject
  */
-function SignUpCtrl(UserService) { 
+function LoginCtrl(UserService) { 
 
     var vm = this; 
 
@@ -17,6 +17,6 @@ function SignUpCtrl(UserService) {
     vm.getCurrentUserJSON = UserService.getCurrentUserJSON;
 
     // controller-specific:
-    vm.signup = UserService.create;
+    vm.login = UserService.login;
 
 }
