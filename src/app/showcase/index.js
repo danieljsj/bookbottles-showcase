@@ -15,10 +15,14 @@ require('angular')
     .controller('HomeCtrl', require('./controllers/HomeCtrl'))
 
 
+
+    // PLACED INELEGANTLY HERE DUE TO TIME CONSTRAINTS:
     .filter('debug', function() {
       return function(input) {
         if (input === '') return 'empty string';
         return input ? input : ('' + input);
       };
-    });
+    })
+
+
 ;

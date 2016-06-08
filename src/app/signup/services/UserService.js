@@ -39,7 +39,24 @@ function UserService($state,$rootScope) {
       // sendWelcomeEmail: sendWelcomeEmail,
     };
 
+
+    // needed because on page refresh, it seems that the user data isn't in place yet, even if they are already logged in. So we're going to check a ton of times for a loaded user, and as soon as we've loaded it, we'll refresh everything.
+    // this is a bit ugly, and there's probably a nice hook somewhere in the firebase auth process for when the user data is loaded/refreshed from firebase. Currently it's taking ~30ms for it to look like there's a user.
+    var timesInitialDigestNudgeTried = 0;
+    var initialDigestNudge = function(){
+      console.log('isLoggedIn():',isLoggedIn());
+      if (isLoggedIn()){
+        $rootScope.$apply();
+      } else if (1000 > ++timesInitialDigestNudgeTried){
+        setTimeout(initialDigestNudge,10);
+      }
+    }
+    initialDigestNudge();
+
+
+
     return service;
+
 
     ////////////
 
