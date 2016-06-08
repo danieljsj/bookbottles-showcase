@@ -37,13 +37,13 @@
           ul.nav.navbar-nav.navbar-right
             // TODO: figure out how to get ui-sref to also work inside the 'signup' module -- documentation here: http://angular-ui.github.io/ui-router/site/#/api/ui.router.state.$state#methods_go
             li
-              a(href="/signup") Sign up
+              a(href="/signup", ng-if="! vm.userIsLoggedIn()") Sign up
               //- a(ui-sref="signup") Sign up
             li
-              a(href="/login") Log in
+              a(href="/login", ng-if="! vm.userIsLoggedIn()") Log in
               //- a(ui-sref="login") Log in
             li.active-NOT
-              a(href="/dashboard") Dashboard
+              a(href="/dashboard", ng-if="vm.userIsLoggedIn()") Dashboard
               //- a(ui-sref="dashboard") Dashboard
         // /.nav-collapse
     // /.navbar.navbar-default.navbar-fixed-top

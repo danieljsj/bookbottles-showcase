@@ -12,4 +12,13 @@ require('angular')
     .config(require('./config'))
     .config(require('./route'))
     .controller('DashboardCtrl', require('./controllers/DashboardCtrl'))
+    .controller('HomeCtrl', require('./controllers/HomeCtrl'))
+
+
+    .filter('debug', function() {
+      return function(input) {
+        if (input === '') return 'empty string';
+        return input ? input : ('' + input);
+      };
+    });
 ;

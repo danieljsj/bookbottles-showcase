@@ -1,17 +1,16 @@
 'use strict';
 
-module.exports = LoginCtrl; 
+module.exports = DashboardCtrl; 
 
 /**
  * @ngInject
  */
-function LoginCtrl(UserService) { 
+
+DashboardCtrl.$inject = ['UserService'];
+
+function DashboardCtrl(UserService) { 
 
     var vm = this; 
-
-    // COMMON:
-    
-
 
     // controllers/modules common: // todo:find a better way...
     vm.userIsLoggedIn = UserService.isLoggedIn;
@@ -19,6 +18,6 @@ function LoginCtrl(UserService) {
     vm.getCurrentUserJSON = UserService.getCurrentUserJSON;
 
     // controller-specific:
-    vm.login = UserService.login;
+
 
 }

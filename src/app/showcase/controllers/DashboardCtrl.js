@@ -14,10 +14,8 @@ function DashboardCtrl(UserService) {
 
     vm.foo = 'bar';
 
-    // // TODO: perhaps look for a less repetitive way to add these more common, public methods to all scopes? condense them into a single 'UserService.commonMethods' object?
-    // controllers/modules common:
-    vm.userLoggedIn = UserService.isLoggedIn;
-    // debug / maybe-common:
+    // controllers/modules common: // todo:find a better way...
+    vm.userIsLoggedIn = UserService.isLoggedIn;
     vm.getCurrentUser = UserService.getCurrentUser;
     vm.getCurrentUserJSON = UserService.getCurrentUserJSON;
 
