@@ -3,7 +3,7 @@ extends ./layout.tpl.jade
 block content
 	div#account.col-sm-4.col-sm-push-8-NOT
 		h2 Your Account:
-		h4 Email:
+		h4 Email:&#32;
 			code {{ vm.getCurrentUser().email }}
 		button.btn(ng-click="vm.logout()") Log out
 	div#chat.col-sm-8.col-sm-pull-4-8-NOT
@@ -27,6 +27,6 @@ block content
 		)
 			.panel-body
 				p.text {{m.text}}
-				span.senderEmail {{m.senderEmail}}
+				b.senderEmail {{m.senderEmail}}
 				br
-				span.timestamp {{m.timestamp | date:'MM/dd/yyyy @ h:mma'}}
+				span.timestamp {{m.timestamp | date:'EEE MMM d, y @ h:mm a'}}
