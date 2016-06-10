@@ -10,5 +10,5 @@ block content
 		input.message(type="text" ng-model="messageInputText")
 		input.submit(type="submit")
 	//- div(ng-repeat="m in vm.getChatMessagesReadonly()")
-	div(ng-repeat="m in vm.chatMessages")
-		h4 {{m.text}} | {{m.senderEmail}} | {{m.timestamp}}
+	div(ng-repeat="m in vm.chatMessages | orderBy:'timestamp'")
+		h4 {{m.text}} | {{m.senderEmail}} | {{m.timestamp | date:'MM/dd/yyyy @ h:mma'}}
