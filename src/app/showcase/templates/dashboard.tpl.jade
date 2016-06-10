@@ -20,7 +20,7 @@ block content
 		.panel.message(
 			ng-repeat="m in vm.chatMessages | orderBy:'-timestamp'"
 			ng-if="m.timestamp"
-			ng-class="{}"
+			ng-class="{'panel-primary':m.senderEmail == vm.getCurrentUser().email}"
 		)
 			.panel-body
 				p.text {{m.text}}
