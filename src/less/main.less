@@ -3,3 +3,23 @@
 body {
   background: #eeeeee;
 }
+
+@base-blue: #B7E3F7;
+@light-blue: @base-blue + #211;
+
+@base-gray: #C0C0C0;
+@light-gray: @base-gray + #211;
+
+@message-offset: 30px;
+
+#chat .message {
+	margin-right: @message-offset;
+	border-color: @light-gray;
+}
+#chat .message.mine {
+	text-align: right;
+	margin-right: 0;
+	margin-left: @message-offset;
+	background-color: @light-blue;
+	border-color: @base-blue;
+}
