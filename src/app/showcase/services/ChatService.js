@@ -4,15 +4,15 @@ console.log("DSLFKJASDLFJASDKLFJASLKFJASLKJFSALKJFASKLJFSAL");
 
 module.exports = ChatService;
 
-ChatService.$inject = ['UserService','$rootScope']; // theoretically I should be injecting angular references instead of just calling the global angular (which I'm also doign in UserService) but I haven't yet found good documentation on using the new firebase within RequireJS/Require() etc.
-function ChatService(   UserService,  $rootScope){
+ChatService.$inject = ['UserService','$rootScope','$timeout']; // theoretically I should be injecting angular references instead of just calling the global angular (which I'm also doign in UserService) but I haven't yet found good documentation on using the new firebase within RequireJS/Require() etc.
+function ChatService(   UserService,  $rootScope,  $timeout){
 	
 	var messagesRef = firebase.database().ref('messages');
 	
 	messagesRef.on('child_added',function(snapshot){
 		console.log(snapshot.val());
 		messages.push(snapshot.val());
-		setTimeout($rootScope.$apply(),0);
+		$timeout(function(){$rootScope.$apply();});
 		console.log(messages);
 	});
 
