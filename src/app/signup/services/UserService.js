@@ -84,6 +84,7 @@ function UserService($state,$rootScope) {
       firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then(
         function(){
           $state.go('dashboard');
+          setTimeout(function(){location.reload()},0); // hackish fix for the fact that upon login, we're not able to see our new messages until we refresh
         },
         function(error) {
           // Handle Errors here.
