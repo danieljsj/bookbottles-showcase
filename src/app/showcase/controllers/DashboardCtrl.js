@@ -6,9 +6,10 @@ module.exports = DashboardCtrl;
  * @ngInject
  */
 
-DashboardCtrl.$inject = ['UserService'];
+DashboardCtrl.$inject = ['UserService','ChatService']; 
+function DashboardCtrl(   UserService,  ChatService) { 
 
-function DashboardCtrl(UserService) { 
+	console.log(UserService, ChatService);
 
     var vm = this; 
 
@@ -19,8 +20,12 @@ function DashboardCtrl(UserService) {
     vm.getCurrentUser = UserService.getCurrentUser;
     vm.getCurrentUserJSON = UserService.getCurrentUserJSON;
 
+
     // controller-specific:
     vm.logout = UserService.logout;
 
+    vm.addChatMessage = ChatService.addMessage;
+	vm.getChatMessagesReadonly = ChatService.getMessagesReadonly;
+	vm.chatMessages = ChatService.messages;
 
 }

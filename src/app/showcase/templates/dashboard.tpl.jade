@@ -1,7 +1,14 @@
 extends ./layout.tpl.jade
 
 block content
-	h1 trololo i am a dashboard
+	h1 Your Account:
 	h2 email: {{ vm.getCurrentUser().email }}
 	h3 
 		a(ng-click="vm.logout()") logout
+	h1 Super Exciting Chat:
+	form(ng-submit="vm.addChatMessage(messageInputText); messageInputText='';")
+		input.message(type="text" ng-model="messageInputText")
+		input.submit(type="submit")
+	//- div(ng-repeat="m in vm.getChatMessagesReadonly()")
+	div(ng-repeat="m in vm.chatMessages")
+		h4 {{m.text}} | {{m.senderEmail}} | {{m.timestamp}}
