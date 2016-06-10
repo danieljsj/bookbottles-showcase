@@ -1,15 +1,29 @@
 extends ./layout.tpl.jade
 
 block content
-	div.col-md-4.col-md-push-8
+	div#account.col-md-4.col-md-push-8
 		h3 Your Account:
-		h4 email {{ vm.getCurrentUser().email }}
+		h4 Email:
+			code {{ vm.getCurrentUser().email }}
 		button.btn(ng-click="vm.logout()") Log out
-	div.col-md-8.col-md-pull-4
-		h1 Super Exciting Chat:
+	div#chat.col-md-8.col-md-pull-4
+		h2 Chat:
 		form(ng-submit="vm.addChatMessage(messageInputText); messageInputText='';")
-			input.message(type="text" ng-model="messageInputText")
+			input.message(
+				type="text" 
+				ng-model="messageInputText" 
+				placeholder="Your message..."
+			)
 			input.submit(type="submit")
 		//- div(ng-repeat="m in vm.getChatMessagesReadonly()")
-		div(ng-repeat="m in vm.chatMessages | orderBy:'timestamp'")
-			h4 {{m.text}} | {{m.senderEmail}} | {{m.timestamp | date:'MM/dd/yyyy @ h:mma'}}
+		br
+		.panel.message(
+			ng-repeat="m in vm.chatMessages | orderBy:'-timestamp'"
+			ng-if="m.timestamp"
+			ng-class="{}"
+		)
+			.panel-body
+				p.text {{m.text}}
+				span.senderEmail {{m.senderEmail}}
+				br
+				span.timestamp {{m.timestamp | date:'MM/dd/yyyy @ h:mma'}}
