@@ -3,6 +3,7 @@ extends ./layout.tpl.jade
 block content
 	div#account.col-sm-4.col-sm-push-8-NOT
 		h2 Your Account:
+		img.avatar.panel(src="https://api.adorable.io/avatars/285/{{vm.getCurrentUser().email}}")
 		h4 Email:&#32;
 			code {{ vm.getCurrentUser().email }}
 		button.btn(ng-click="vm.logout()") Log out
@@ -27,6 +28,8 @@ block content
 		)
 			.panel-body
 				p.text {{m.text}}
+				hr
+				img.avatar.panel(src="https://api.adorable.io/avatars/50/{{m.senderEmail}}")
 				b.senderEmail {{m.senderEmail}}
 				br
 				span.timestamp {{m.timestamp | date:'EEE MMM d, y @ h:mm a'}}

@@ -3,7 +3,10 @@
 img {
 	max-width: 100%;
 }
-
+hr {
+	border-color: rgb(238, 238, 238);
+	border-color: rgba(138, 138, 138, .2);
+}
 body {
   background: #eeeeee;
 }
@@ -16,14 +19,26 @@ body {
 
 @message-offset: 30px;
 
-#chat .message {
-	margin-right: @message-offset;
-	border-color: @light-gray;
-}
-#chat .message.mine {
-	text-align: right;
-	margin-right: 0;
-	margin-left: @message-offset;
-	background-color: @light-blue;
-	border-color: @base-blue;
+@avatar-spacing:15px;
+
+#chat {
+	.message {
+		margin-right: @message-offset;
+		border-color: @light-gray;
+		img.avatar {
+			float:left;	
+			margin: 0 @avatar-spacing 0 0;
+		}
+		&.mine {
+			text-align: right;
+			margin-right: 0;
+			margin-left: @message-offset;
+			background-color: @light-blue;
+			border-color: @base-blue;
+			img.avatar {
+				float:right;
+				margin: 0 0 0 @avatar-spacing;
+			}
+		}
+	}
 }
