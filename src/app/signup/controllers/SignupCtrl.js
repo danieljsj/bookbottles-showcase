@@ -16,5 +16,6 @@ function SignupCtrl(UserService) {
 
     // controller-specific:
     vm.signup = UserService.create;
+    vm.signupError = UserService.creationError;
 
 }

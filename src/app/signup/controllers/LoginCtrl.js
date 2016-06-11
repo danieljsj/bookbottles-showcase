@@ -20,5 +20,6 @@ function LoginCtrl(UserService) {
 
     // controller-specific:
     vm.login = UserService.login;
+    vm.loginError = UserService.loginError;
 
 }

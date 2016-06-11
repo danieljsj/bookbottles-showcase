@@ -20,6 +20,8 @@ function UserService($state,$rootScope) {
   };
   firebase.initializeApp(config);
 
+  var creationError = {code: false, message: false};
+  var loginError = {code: false, message: false};
 
 
 	// adapted from: https://github.com/gordonmzhu/angular-course-demo-app-v2/blob/master/src/app/auth/auth.service.js
@@ -28,7 +30,9 @@ function UserService($state,$rootScope) {
     var service = { // renamed to more generic 'service' (per the example) so we're clear about when the name matters and when it doesn't. 
   	  // firebaseAuthObject: firebaseAuthObject,
       create: create,
+      creationError: creationError,
       login: login,
+      loginError: loginError,
       logout: logout,
       isLoggedIn: isLoggedIn,
       getAuth: getAuth,
@@ -71,8 +75,9 @@ function UserService($state,$rootScope) {
         },
         function(error) {
           // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
+          creationError.code = error.code;
+          creationError.message = error.message;
+          $rootScope.$apply();
           // ...
         }
       );
@@ -88,8 +93,9 @@ function UserService($state,$rootScope) {
         },
         function(error) {
           // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
+          loginError.code = error.code;
+          loginError.message = error.message;
+          $rootScope.$apply();
           // ...
         }
       );
