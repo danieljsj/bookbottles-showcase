@@ -5,9 +5,17 @@ block content
 	.panel
 		.panel-body
 			center 
-				h1 Free Simple Chat Room
-			.home-avatars
-				img.avatar.panel(src="https://api.adorable.io/avatars/450/a.png")
-				img.avatar.panel(src="https://api.adorable.io/avatars/450/rebekah@test.com")
-			center
+				h1 Friendly &amp; Fun Chat Room
+				.home-avatars.row
+					.col-xs-1
+					.col-xs-5
+						a(href="/signup")
+							img.avatar.panel(src="https://api.adorable.io/avatars/450/a.png")
+							h2 Sign Up
+					.col-xs-5
+						a(href="/login")
+							img.avatar.panel(src="https://api.adorable.io/avatars/450/rebekah@test.com")
+							h2 Log In
+					.col-xs-1
+				hr
 				p Thank you for visiting this completely unmoderated chat room. Please create an account or log in and then access your dashboard to begin chatting.
